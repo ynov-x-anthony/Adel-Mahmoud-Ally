@@ -1,44 +1,53 @@
 import './App.css'
 
-// Mission : ce blog fonctionne, mais tout est construit en <div>. Rends-le
-// sémantique : landmarks, hiérarchie de titres, vrai bouton, vrai label.
-
 function App() {
   return (
     <div className="page">
-      <div className="header">
+      {/* L'en-tête principal et la navigation */}
+      <header className="header">
         <div className="logo">DevBlog</div>
-        <div className="nav">
-          <div className="nav-link">Accueil</div>
-          <div className="nav-link">Articles</div>
-          <div className="nav-link">Contact</div>
-        </div>
-      </div>
+        <nav className="nav">
+          <a href="/" className="nav-link">Accueil</a>
+          <a href="/articles" className="nav-link">Articles</a>
+          <a href="/contact" className="nav-link">Contact</a>
+        </nav>
+      </header>
 
-      <div className="main">
-        <div className="article">
-          <div className="title">Pourquoi apprendre TypeScript en 2026</div>
-          <div className="meta">Publié le 3 mars 2026</div>
-          <div className="small-title">Un typage qui rassure</div>
+      {/* Le contenu principal de la page */}
+      <main className="main">
+        {/* Un article indépendant */}
+        <article className="article">
+          <h1 className="title">Pourquoi apprendre TypeScript en 2026</h1>
+          <p className="meta">Publié le 3 mars 2026</p>
+          
+          <h2 className="small-title">Un typage qui rassure</h2>
           <p>TypeScript attrape une classe entière de bugs avant même d'exécuter le code...</p>
-          <div className="small-title">Un écosystème mature</div>
+          
+          <h2 className="small-title">Un écosystème mature</h2>
           <p>La quasi-totalité des librairies JS fournissent désormais leurs types...</p>
-        </div>
+        </article>
 
-        <div className="like-btn" onClick={() => alert("Merci pour le like !")}>
+        {/* Action sur la page = vrai bouton */}
+        <button className="like-btn" onClick={() => alert("Merci pour le like !")}>
           👍 J'aime cet article
-        </div>
+        </button>
 
-        <div className="newsletter">
-          <div className="small-title">Reste informé</div>
-          <input type="email" placeholder="ton@email.fr" />
-          <div className="submit-btn" onClick={() => alert('Inscription envoyée')}>
+        {/* Section de newsletter avec un formulaire accessible */}
+        <section className="newsletter">
+          <h2 className="small-title">Reste informé</h2>
+          
+          {/* Le label est relié à l'input via htmlFor et id */}
+          <label htmlFor="email-input">Ton adresse e-mail</label>
+          <input id="email-input" type="email" placeholder="ton@email.fr" />
+          
+          <button className="submit-btn" onClick={() => alert('Inscription envoyée')}>
             S'inscrire
-          </div>
-        </div>
-      </div>
+          </button>
+        </section>
+      </main>
 
-      <div className="footer">© 2026 DevBlog</div>
+      {/* Le pied de page */}
+      <footer className="footer">© 2026 DevBlog</footer>
     </div>
   )
 }
